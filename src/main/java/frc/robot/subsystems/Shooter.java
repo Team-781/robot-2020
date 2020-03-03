@@ -9,19 +9,22 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 
 // i think it run shooter
 public class Shooter extends Subsystem {
- TalonSRX _shoot1 = new TalonSRX(RobotMap.shooter1);
- TalonSRX _shoot2 = new TalonSRX(RobotMap.shooter2);
-
-    @Override 
-    public void initDefaultCommand() {
-        //idk
-    }
+    TalonSRX _shoot1, _shoot2;
     
-    public void setmotors() {
+    public Shooter() {
+        TalonSRX _shoot1 = new TalonSRX(RobotMap.shooter1);
+        TalonSRX _shoot2 = new TalonSRX(RobotMap.shooter2);       
         _shoot2.follow(_shoot1);
     }
-    public void runShooter(double speed) {
-        _shoot1.set(ControlMode.PercentOutput, 0.8);
+    public void runShooter(double shooterSpeed) {
+        _shoot1.set(ControlMode.PercentOutput,shooterSpeed);
     }
+
+    public void stop(){
+        _shoot1.set(ControlMode.Disabled, 0.0);
+    }    
+  public void initDefaultCommand() {
+      //idk
     }
+}
 

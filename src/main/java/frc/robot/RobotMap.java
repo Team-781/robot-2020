@@ -22,24 +22,24 @@ public class RobotMap {
   //CONTROLLERs
   //driver
   public static int vroom_stick = 0;
-  public static int drA = 0;
-  public static int drB = 1;
-  public static int drY = 2;
-  public static int drX = 3;
-  public static int drLB = 6;
-  public static int drRB = 7;
+  public static int drA = 1;
+  public static int drB = 2;
+  public static int drY = 3;
+  public static int drX = 4;
+  public static int drLB = 5;
+  public static int drRB = 6;
   //operater
   public static int beepboop_stick = 3;
-  public static int op1 = 0;
-  public static int op2 = 1;
-  public static int op3 = 2;
-  public static int op4 = 3;
-  public static int op5 = 4;
-  public static int op6 = 5;
-  public static int op7 = 6;
-  public static int op8 = 7;
-  public static int op9 = 8;
-  public static int op10 = 9;
+  public static int op1 = 1;
+  public static int op2 = 2;
+  public static int op3 = 3;
+  public static int op4 = 4;
+  public static int op5 = 5;
+  public static int op6 = 6;
+  public static int op7 = 7;
+  public static int op8 = 8;
+  public static int op9 = 9;
+  public static int op10 = 10;
 
 
   //DRIVE MOTORS
@@ -54,12 +54,9 @@ public class RobotMap {
   public static int shooter1 = 31;
   public static int shooter2 = 32;
 
-  //public static double shooterSpeed = 0.5;
-
   //intake motor
   public static int intake = 21;
   public static int arm = 22;
-  public static double intakeSpeed = 0.5;
 
   //schwoop motors + sensor
   public static int schwoop = 23;
