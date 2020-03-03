@@ -19,38 +19,22 @@ public class OI {
   //DRIVER
   Joystick vroomstick = new Joystick(RobotMap.vroom_stick);
   Joystick beepboopstick = new Joystick(RobotMap.beepboop_stick);
-  Button driverA = new JoystickButton(vroomstick, RobotMap.drA); //the port # for buttons are linked to the RobotMap int equivelent.
+  Button drA = new JoystickButton(vroomstick, RobotMap.drA); //the port # for buttons are linked to the RobotMap int equivelent.
   Button drB = new JoystickButton(vroomstick, RobotMap.drB);
   Button drY = new JoystickButton(vroomstick, RobotMap.drY);
   Button drX = new JoystickButton(vroomstick, RobotMap.drX);
   Button drLB = new JoystickButton(vroomstick, RobotMap.drLB);
   Button drRB = new JoystickButton(vroomstick, RobotMap.drRB);
+
+  //command beep boop area
+  public OI() {
+    drA.whileHeld(new RunShooter());
+  }
   public double DriverX() {
     return vroomstick.getRawAxis(4);
   }
   public double DriverY() {
     return vroomstick.getRawAxis(1);
-  }
-  public boolean drLT() {
-    if (vroomstick.getRawAxis(2) > 0.5) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-  public boolean drRT() {
-    if (vroomstick.getRawAxis(3) > 0.5) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-
-  //command beep boop area
-  public OI() {
-    driverA.whileHeld(new RunShooter());
   }
   
   

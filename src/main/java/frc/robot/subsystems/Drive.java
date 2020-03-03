@@ -31,7 +31,7 @@ public class Drive extends Subsystem {
   CANSparkMax rTyler2 = new CANSparkMax(RobotMap._rSlave2, MotorType.kBrushless);
 
   //run this method during robot init
-  public void sewingmachine() {
+  public Drive() {
   compressor.start();
   //reset motor controllers
   lMaster.restoreFactoryDefaults();
@@ -50,6 +50,11 @@ public class Drive extends Subsystem {
   rMaster.setClosedLoopRampRate(0.5);
   lMaster.setOpenLoopRampRate(0.5);
   rMaster.setOpenLoopRampRate(0.5);
+  //Right Side goes backwards normally, so invert the motor controllers
+  rMaster.setInverted(true);
+  rTyler1.setInverted(true);
+  rTyler2.setInverted(true);
+
 }
  
  public void ArcadeDrive(double speed, double steer) {
