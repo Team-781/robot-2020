@@ -7,10 +7,18 @@
 
 package frc.robot.subsystems;
 import frc.robot.Constants;
+//import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.*;
 import edu.wpi.first.wpilibj.Solenoid;
+//import edu.wpi.first.wpilibj.networktables.*;
+import edu.wpi.first.wpilibj.smartdashboard.*;
+//import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+//import edu.wpi.first.wpilibj.DoubleSolenoid;
+//import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.networktables.*;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANEncoder;
 import edu.wpi.first.wpilibj.Compressor;
  /*
  * An example subsystem. You can replace with me with your own subsystem.
@@ -28,6 +36,17 @@ public class Drive extends SubsystemBase {
   CANSparkMax rMaster = new CANSparkMax(Constants.rMaster, MotorType.kBrushless);
   CANSparkMax rTyler1 = new CANSparkMax(Constants.rSlave1, MotorType.kBrushless);
   CANSparkMax rTyler2 = new CANSparkMax(Constants.rSlave2, MotorType.kBrushless);
+
+  NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+  NetworkTableEntry tx = table.getEntry("tx");
+  NetworkTableEntry ty = table.getEntry("ty");
+  NetworkTableEntry ta = table.getEntry("ta");
+
+  CANEncoder left, right;
+  //DoubleSolenoid Shifter = new DoubleSolenoid(0, 1);
+ protected void initDefaultCommand() {
+  // Set the default command for a subsystem here.
+ }
 
   //run this method during robot init
   public Drive() {
@@ -54,6 +73,8 @@ public class Drive extends SubsystemBase {
   rTyler1.setInverted(true);
   rTyler2.setInverted(true);
 
+  left = lMaster.getEncoder();
+  right = rMaster.getEncoder();
 }
  
  public void ArcadeDrive(double speed, double steer) {
@@ -61,10 +82,7 @@ public class Drive extends SubsystemBase {
     steer = steer * steer * steer;
     lMaster.set(speed + steer);
     rMaster.set(speed - steer);
-  }
-
-  protected void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-   
+    SmartDashboard.putNumber("left position", left.getPosition());
+    SmartDashboard.putNumber("right position", right.getPosition());
   }
 }

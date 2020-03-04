@@ -25,7 +25,7 @@ public final class Constants {
     public static int drLB = 5;
     public static int drRB = 6;
     //operater
-    public static int beepboop_stick = 3;
+    public static int beepboop_stick = 1;
     public static int opA = 1;
     public static int opB = 2;
     public static int opX = 3;

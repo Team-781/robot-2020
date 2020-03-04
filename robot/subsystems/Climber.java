@@ -21,7 +21,6 @@ VictorSPX _Climber2 = new VictorSPX(Constants.climber2);
 
     public void runClimber(double climberSpeed) {
         _Climber1.set(ControlMode.PercentOutput, climberSpeed);
-        _Climber2.set(ControlMode.PercentOutput, climberSpeed);
     }
 
 public void stop() {
