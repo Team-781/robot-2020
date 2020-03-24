@@ -79,25 +79,8 @@ public final class Constants {
     //arm + arm positions
     public static final int arm = 22;
 
-    public static final int armVertical = 660;
+    public static final int armVertical = 645;
     public static final int armDown = 0;
     public static final int armHome = 183;
-
-    //SHOOTING DATA
-    
-    //20ft, 204pos angle, 80% power
-    public static final int armFAR = 200;
-    public static final double shooterFAR = 0.8;
-    public static final double distanceFAR = 0.13; //Need to find distance in limelight ta
-
-    //15ft, 188pos angle, 70% power
-    public static final int armMED = 210;
-    public static final double shooterMED = 0.7;
-    public static final double distanceMED = 0.165; //Need to find distance in limelight ta
-
-    //11-12ft, 212pos angle, 70% power
-    public static final int armNEAR = 220;
-    public static final double shooterNEAR = 0.7;
-    public static final double distanceNEAR = 0.22; //Need to find in distance in limelight ta
-
+    public static final int arm10ft = 220;
 }

@@ -98,24 +98,27 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     //op4.whileHeld(armStarting);
-    op4.whileHeld(new ParallelCommandGroup(new RunArm(m_arm, Constants.armDown), new RunIntake(m_intake, 0.75)));
-    op5.whileHeld(new RunIntake(m_intake, -0.75));
-    op9.whileHeld(new RunShwoopShooter(m_shwoop, m_shoot));
-    op2.whileHeld(runParascopeUp);
-    op7.whileHeld(runParascopeDown);
-    op1.whileHeld(loadShwoop);
-
-    op11.whileHeld(new RunArm(m_arm, Constants.armVertical));
-    op12.whileHeld(new RunArm(m_arm, Constants.armNEAR));
-    op13.whileHeld(new RunArm(m_arm, Constants.armDown));
-    op14.whileHeld(new RunArm(m_arm, Constants.armMED));
-    op15.whileHeld(new RunArm(m_arm, Constants.armHome));
-
     drA.whileHeld(new RunClimber(m_climber, -1.0));
     drY.whileHeld(new RunClimber(m_climber, 1.0));
+    op1.whileHeld(loadShwoop);
+    op2.whileHeld(runParascopeUp);
 
-    op10.whileHeld(new LimelightAim(m_drive, m_limelight));
-    op8.whileHeld(new ZeroArm(m_arm));
+    op5.whileHeld(new ZeroArm(m_arm));
+
+    op7.whileHeld(runParascopeDown);
+
+    op11.whileHeld(new RunArm(m_arm, Constants.armVertical));
+    op12.whileHeld(new RunArm(m_arm, Constants.arm10ft));
+    op13.whileHeld(new RunArm(m_arm, Constants.armDown));
+
+    op15.whileHeld(new RunArm(m_arm, Constants.armHome));
+
+    op17.whileHeld(new ParallelCommandGroup(new RunArm(m_arm, Constants.armDown), new RunIntake(m_intake, 0.75)));
+    op18.whileHeld(new RunIntake(m_intake, -0.75));
+    op19.whileHeld(new RunShwoopShooter(m_shwoop, m_shoot, 0.8));
+    op20.whileHeld(new LimelightAim(m_drive, m_limelight));
+    op21.whileHeld(new RunShwoopShooter(m_shwoop, m_shoot, 0.9));
+    op22.whenPressed(new ZeroArm(m_arm));
     // op11.whileHeld(new ArmVertical(m_arm));
     //op13.whileHeld(armDown);
     //op15.whileHeld(new ArmHome(m_arm));
@@ -131,7 +134,7 @@ public class RobotContainer {
     // An ExampleCommand will run in autonomous
    // return autonomous;
    //return new SequentialCommandGroup(new ArmDown(m_arm) ,new Autonomous(m_drive), new Arm11ft(m_arm), new RunShwoopShooter(m_shwoop, m_shoot));
-    return new SequentialCommandGroup(new RunArm(m_arm, Constants.armDown), new Autonomous(m_drive), new ParallelCommandGroup(new RunArm(m_arm, Constants.armNEAR), new RunShwoopShooterAuto(m_shwoop, m_shoot)));
+    return new SequentialCommandGroup(new RunArm(m_arm, Constants.armDown), new Autonomous(m_drive), new ParallelCommandGroup(new RunArm(m_arm, Constants.arm10ft), new RunShwoopShooterAuto(m_shwoop, m_shoot)));
     //new LimelightAim(m_drive, m_limelight), new RunShwoopShooter(m_shwoop, m_shoot));
     //return new SequentialCommandGroup(autonomous, aimFAR);
   }
@@ -140,8 +143,16 @@ public class RobotContainer {
     return vroomstick.getRawAxis(1);
   }
 
-  public double DriverX() {
+  public static double DriverX() {
     return vroomstick.getRawAxis(4);
+  }
+  
+  public static double DriverLT() {
+    return vroomstick.getRawAxis(2);
+  }
+
+  public static double DriverRT() {
+    return vroomstick.getRawAxis(3);
   }
 
   public static boolean DriverRB() {

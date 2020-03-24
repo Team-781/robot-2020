@@ -16,15 +16,17 @@ public class RunShwoopShooter extends CommandBase {
     @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
     private final Shwoop m_subsystem;
     private final Shooter m_subsystem2;
+    private double m_speed;
     Timer mTimer = new Timer();
     /**
      * Creates a new ExampleCommand.
      *
      * @param subsystem The subsystem used by this command.
      */
-    public RunShwoopShooter(Shwoop subsystem, Shooter subsystem2) {
+    public RunShwoopShooter(Shwoop subsystem, Shooter subsystem2, double speed) {
       m_subsystem = subsystem;
       m_subsystem2 = subsystem2;
+      m_speed = speed;
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
     }
@@ -39,9 +41,9 @@ public class RunShwoopShooter extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_subsystem2.runShooter(0.9);
+    m_subsystem2.runShooter(m_speed);
     if (mTimer.get() > 0.9) {
-      m_subsystem.runShwoop(0.4);
+      m_subsystem.runShwoop(0.35);
     }
     else {}
   }

@@ -9,7 +9,6 @@ package frc.robot.commands;
 import frc.robot.subsystems.Drive;
 import frc.robot.RobotContainer;
 //import frc.robot.subsystems.Limelight;
-import frc.robot.Robot;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /**
@@ -42,18 +41,18 @@ public class JoystickDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    speed = Robot.robotContainer.DriverY();
-    steer = Robot.robotContainer.DriverX();
+    speed = RobotContainer.DriverY();
+    steer = RobotContainer.DriverX();
     if (RobotContainer.DriverRB()) {
       m_subsystem.ShiftGears(true);
       m_subsystem.ArcadeDrive(speed, steer);
     }
-    else {
-      m_subsystem.ShiftGears(false);
-      m_subsystem.ArcadeDrive(speed, steer);
+    else if (RobotContainer.DriverLT() == 0.0) {
+
     }
-    
-    
+    else {
+
+    }
     //if (Robot.robotContainer.getOpA()) {
     //  if (limelightsteer < -0.5) {limelightsteer = -0.5;}
     //  if (limelightsteer > 0.5) {limelightsteer = 0.5;}

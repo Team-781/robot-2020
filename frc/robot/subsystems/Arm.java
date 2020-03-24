@@ -43,12 +43,12 @@ public class Arm extends SubsystemBase {
     m_arm.configForwardSoftLimitThreshold(660); // upper limit
     // motion magic acceleration and cruise velocity
     m_arm.configMotionAcceleration(15);
-    m_arm.configMotionCruiseVelocity(25);
+    m_arm.configMotionCruiseVelocity(30);
   }
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber("Arm Pos'n", m_arm.getSelectedSensorPosition());
+    SmartDashboard.putNumber("Arm Position", m_arm.getSelectedSensorPosition());
   }
 
   /**
@@ -86,6 +86,6 @@ public class Arm extends SubsystemBase {
     m_arm.set(ControlMode.Disabled, 0.0);
   }
   public void zeroArm(){
-    m_arm.setSelectedSensorPosition(21);
+    m_arm.setSelectedSensorPosition(25);
   }
 }

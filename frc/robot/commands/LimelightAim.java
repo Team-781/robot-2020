@@ -71,7 +71,7 @@ public class LimelightAim extends CommandBase {
      /// isDone = true;
     //}
     //return isDone;
-    return (lsteer > 0.0 && lsteer < 0.1);
+    return (lsteer > 0.0 && lsteer < 0.4);
   }
  
 }

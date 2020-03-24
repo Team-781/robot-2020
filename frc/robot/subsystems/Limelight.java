@@ -54,4 +54,7 @@ public class Limelight extends SubsystemBase {
     if (onOff) parascope.set(Value.kForward);
     else parascope.set(Value.kReverse);
   }
+  public void setPipeline(int pipeline) {
+  NetworkTableInstance.getDefault().getTable("limelight").getEntry("pipeline").setNumber(pipeline);
+  }
 }

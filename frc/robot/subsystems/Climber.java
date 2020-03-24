@@ -15,17 +15,18 @@ VictorSPX _Climber2 = new VictorSPX(Constants.climber2);
     }
 
     public void Climber_() {
-        _Climber2.follow(_Climber1);
         _Climber1.setNeutralMode(NeutralMode.Brake);
         _Climber2.setNeutralMode(NeutralMode.Brake);
     }
 
     public void runClimber(double climberSpeed) {
         _Climber1.set(ControlMode.PercentOutput, climberSpeed);
+        _Climber2.set(ControlMode.PercentOutput, climberSpeed *-1);
     }
 
 public void stop() {
     _Climber1.set(ControlMode.Disabled, 0.0);
+    _Climber2.set(ControlMode.Disabled, 0.0);
 }
 
 }

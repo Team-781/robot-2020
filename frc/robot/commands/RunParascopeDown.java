@@ -31,6 +31,7 @@ public class RunParascopeDown extends CommandBase {
   @Override
   public void initialize() {
     m_subsystem.moveParascope(true);
+    m_subsystem.setPipeline(1);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
